@@ -4,6 +4,9 @@ import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.ImageView
+import android.widget.TextView
+import com.bumptech.glide.Glide
 import id.rsdiz.lab_customlistview.R
 import id.rsdiz.lab_customlistview.data.MataKuliah
 
@@ -44,5 +47,44 @@ class DetailActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_detail)
+
+        // inisialisasi data dari extra intent
+        val namaValue = intent.extras?.getString(EXTRA_NAMA)
+        val deskripsiValue = intent.extras?.getString(EXTRA_DESKRIPSI)
+        val kelasValue = intent.extras?.getString(EXTRA_KELAS)
+        val ruangValue = intent.extras?.getString(EXTRA_RUANG)
+        val jamValue = intent.extras?.getString(EXTRA_JAM)
+        val dosenValue = intent.extras?.getString(EXTRA_DOSEN)
+        val sksValue = intent.extras?.getInt(EXTRA_SKS)
+        val coverValue = intent.extras?.getInt(EXTRA_COVER)
+        val iconValue = intent.extras?.getInt(EXTRA_ICON)
+        // inisialisasi widget yang berada pada layout
+        val cover = findViewById<ImageView>(R.id.gambar_cover)
+        val icon = findViewById<ImageView>(R.id.gambar_icon)
+        val nama = findViewById<TextView>(R.id.nama_matkul)
+        val deskripsi = findViewById<TextView>(R.id.deskripsi_matkul)
+        val kelas = findViewById<TextView>(R.id.value_kelas)
+        val ruang = findViewById<TextView>(R.id.value_ruang)
+        val jam = findViewById<TextView>(R.id.value_waktu)
+        val dosen = findViewById<TextView>(R.id.value_dosen)
+        val sks = findViewById<TextView>(R.id.value_sks)
+        // Mengubah konten yang berada pada tiap widget
+        Glide
+            .with(this)
+            .load(coverValue)
+            .centerCrop()
+            .into(cover)
+        Glide
+            .with(this)
+            .load(iconValue)
+            .fitCenter()
+            .into(icon)
+        nama.text = namaValue
+        deskripsi.text = deskripsiValue
+        kelas.text = kelasValue
+        ruang.text = ruangValue
+        jam.text = jamValue
+        dosen.text = dosenValue
+        sks.text = sksValue.toString()
     }
 }
