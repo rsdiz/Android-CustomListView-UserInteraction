@@ -47,9 +47,10 @@
 
         <TextView
             android:id="@+id/deskripsi_matkul"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/txt_deskripsi"
+            android:textAlignment="center"
             android:textColor="#909090"
             android:textSize="12sp"
             android:layout_marginTop="4dp"
