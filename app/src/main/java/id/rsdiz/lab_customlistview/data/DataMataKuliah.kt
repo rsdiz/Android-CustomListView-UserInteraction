@@ -92,7 +92,7 @@ object DataMataKuliah {
             R.drawable.ic_network
     )
 
-    val getData: ArrayList<MataKuliah>
+    val listData: ArrayList<MataKuliah>
         get() {
             val list = arrayListOf<MataKuliah>()
             for (position in nama.indices) {

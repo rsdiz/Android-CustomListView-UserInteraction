@@ -20,7 +20,7 @@ class MainActivity : AppCompatActivity() {
         listView = findViewById(R.id.listView)
 
         // Menambahkan data dari data source yang sudah dibuat ke list
-        matkulList.addAll(DataMataKuliah.getData)
+        matkulList.addAll(DataMataKuliah.listData)
 
         // Atur adapter dari listView dengan custom adapter
         val adapter = MatkulAdapter(this, matkulList)
